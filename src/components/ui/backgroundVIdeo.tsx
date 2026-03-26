@@ -1,6 +1,7 @@
 // components/ui/BackgroundVideo.tsx
 import { ReactNode } from "react";
 import { Section } from "../layout/Section";
+import Image from "next/image";
 
 interface BackgroundVideoProps {
   /**
@@ -62,10 +63,9 @@ export default function BackgroundVideo({
     );
 
   return (
-    <Section
-      className={`flex relative overflow-hidden ${className} `}
+    <div
+      className={`relative overflow-hidden ${className} flex justify-center min-h-[calc(100vh-var(--navbar-height))] px-4 md:px-8 lg:px-40`}
       id={id}
-      height="screen"
     >
       {/* Video de fondo */}
       <video
@@ -82,12 +82,20 @@ export default function BackgroundVideo({
         <source src={src} type="video/mp4" />
         Tu navegador no soporta el elemento video.
       </video>
-
+      <Image
+        width={500}
+        height={300}
+        alt="heroimage"
+        src={"/heroimg.png"}
+        quality={100}
+        unoptimized
+        className="absolute inset-0 h-full w-screen object-cover"
+      />
       {/* Overlay */}
       {overlayContent}
 
       {/* Contenido principal (encima del video) */}
-      <div className="relative flex z-10 flex-1 w-full ">{children}</div>
-    </Section>
+      <div className="relative w-full h-full flex ">{children}</div>
+    </div>
   );
 }

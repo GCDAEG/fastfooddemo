@@ -4,9 +4,13 @@ import "./globals.css";
 import { FooterSection } from "../components/layout/Footer";
 import ExampleMessage from "@/components/layout/Sections/Example";
 import { Navbar } from "@/components/layout/Nav";
-import { roboto, lora, montserrat } from "@/lib/fonts";
+import { roboto, lora, inter } from "@/lib/fonts";
 import ReactLenis from "lenis/react";
 import PageLoader from "./PageLoader";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const metadata: Metadata = {
   title: {
@@ -39,7 +43,13 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${roboto.variable} ${lora.variable} ${montserrat.variable}`}
+      className={cn(
+        roboto.variable,
+        lora.variable,
+        inter.variable,
+        "font-sans",
+        geist.variable,
+      )}
       suppressHydrationWarning
     >
       <body

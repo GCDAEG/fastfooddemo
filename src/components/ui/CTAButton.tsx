@@ -45,7 +45,7 @@ export function SimpleCTAButton({
   href = "https://wa.me/549...?", // ← mismo por defecto
 }: CTAButtonBaseProps & { href?: string }) {
   return (
-    <motion.a
+    <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -53,32 +53,20 @@ export function SimpleCTAButton({
       className={`
         group relative
         inline-flex items-center gap-2.5
-        bg-linear-to-bl from-blue-500 to-blue-700 text-white
-        px-5 py-2 rounded-xl
-        font-medium text-lg
-        shadow-md hover:shadow-xl
+        bg-primary text-neutral-light
+        px-5 py-2 rounded-md
+        font-semibold text-lg
+        shadow-sm hover:shadow-md
+        hover:bg-accent
+        justify-center
         transition-shadow duration-300
         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2
         ${className}
       `}
-      whileHover={{
-        y: -3,
-        boxShadow: "0 12px 28px -8px rgba(37, 211, 102, 0.28)",
-        transition: {
-          type: "spring",
-          stiffness: 300,
-          damping: 28,
-        },
-      }}
-      whileTap={{
-        y: 1,
-        boxShadow: "0 4px 12px -4px rgba(37, 211, 102, 0.2)",
-        transition: { duration: 0.14 },
-      }}
     >
       <BsWhatsapp className="text-xl md:text-2xl" />
-      Contactar por WhatsApp
-    </motion.a>
+      Reservar por WhatsApp
+    </a>
   );
 }
 
@@ -99,13 +87,12 @@ function CtaButtonContent({
       className={`
         group relative
         inline-flex items-center gap-2.5 text-white
-        
-        px-7 py-4 rounded-xl rounded-bl-none
-        font-bold text-lg
-        shadow-md hover:shadow-xl
+        px-8 md:px-6 py-4 rounded-xl rounded-bl-none
+        font-semibold text-lg
+        shadow-sm hover:shadow-md
         transition-shadow duration-300
-        focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2
-        bg-linear-to-bl from-blue-500 to-blue-700
+        focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2
+        bg-linear-to-bl from-primary to-primary/80
         ${className}
       `}
       whileHover={{
@@ -124,7 +111,7 @@ function CtaButtonContent({
       }}
     >
       <BsWhatsapp className="text-xl md:text-2xl" />
-      Contactar
+      Consultar por WhatsApp
     </motion.a>
   );
 }

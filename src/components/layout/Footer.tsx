@@ -1,21 +1,22 @@
 "use client";
-import { Gavel } from "lucide-react";
+import { Gavel, Waves } from "lucide-react";
 import { Button } from "../ui/button";
 import { useLenis } from "lenis/react";
 import { sections } from "@/lib/sections";
+import { BsInstagram, BsWhatsapp } from "react-icons/bs";
+import { FaFacebook, FaLocationDot } from "react-icons/fa6";
+import { Separator } from "../ui/separator";
 export function FooterSection() {
   const lenis = useLenis();
   return (
-    <footer className="bg-background py-12 px-6 md:px-12 border-t border-border">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-10">
+    <footer className="bg-neutral-dark text-neutral-light py-12 px-4 md:px-8 lg:px-40 border-t border-border flex flex-col gap-6">
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Columna 1: Logo + descripción (marcado como pediste) */}
-        <div className="flex flex-col gap-3 col-span-2 md:col-span-1">
+        <div className="flex flex-col gap-3 col-span-1">
           <div id="logo-placeholder" className="flex items-center gap-3 mb-4">
             {/* ← Aquí va tu logo */}
-            <Gavel className="h-10 w-10 text-primary" strokeWidth={2.5} />
-            <h2 className="text-3xl font-bold text-primary tracking-tight">
-              LAW
-            </h2>
+            <Waves className="size-6 " />
+            <h4 className="text-3xl font-semibold tracking-tight">AGUAYRIO</h4>
             {/* Reemplaza lo de arriba con tu imagen/SVG real, por ejemplo:
             <img src="/logo-gym.png" alt="GYM Logo" className="h-12" />
             */}
@@ -30,8 +31,10 @@ export function FooterSection() {
 
         {/* Columna 2: Useful links */}
         <div className="flex flex-col gap-3">
-          <h3>Useful links</h3>
-          <ul className="flex flex-col gap-3 text-sm">
+          <h4 className="text-neutral text-xl font-semibold">
+            Enlaces rápidos
+          </h4>
+          <ul className="flex flex-col gap-2 text-sm">
             {sections.map((section) => (
               <li key={section.id}>
                 <Button
@@ -43,7 +46,7 @@ export function FooterSection() {
                     });
                   }}
                   variant={"link"}
-                  className="h-fit text-foreground"
+                  className="h-fit text-neutral-light"
                 >
                   {section.label}
                 </Button>
@@ -54,63 +57,40 @@ export function FooterSection() {
 
         {/* Columna 3: Support */}
         <div className="flex flex-col gap-3">
-          <h3>Support</h3>
-          <ul className="space-y-3 text-sm text-foreground">
-            <li>
+          <h4 className="text-neutral text-xl font-semibold">Contacto</h4>
+          <ul className="flex flex-col gap-6 text-sm ">
+            <li className="flex gap-2 items-center">
+              <BsWhatsapp className="size-6" />
               <a href="#" className="hover:text-primary transition-colors">
-                Login
+                +54 9 345 1234567
               </a>
             </li>
-            <li>
+            <li className="flex gap-2 items-center">
+              <FaLocationDot className="size-6" />
               <a href="#" className="hover:text-primary transition-colors">
-                My account
+                Entre Ríos, Argentina
               </a>
             </li>
-            <li>
+            <li className="flex gap-5">
               <a href="#" className="hover:text-primary transition-colors">
-                Subscribe
+                <FaFacebook className="size-6" />
               </a>
-            </li>
-            <li>
               <a href="#" className="hover:text-primary transition-colors">
-                Contact
+                <BsInstagram className="size-6" />
               </a>
             </li>
           </ul>
         </div>
       </div>
-
+      {/* Sociales a la izquierda */}
+      <Separator className="bg-neutral-light" />
       {/* Íconos sociales + línea */}
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800">
+      <div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Sociales a la izquierda */}
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-primary transition-colors">
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
-              </svg>
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-              </svg>
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.896 16.312c-1.012.586-2.164.896-3.354.896-3.84 0-6.958-3.118-6.958-6.958 0-1.19.31-2.342.896-3.354l-.001-.001c1.012-.586 2.164-.896 3.354-.896 3.84 0 6.958 3.118 6.958 6.958 0 1.19-.31 2.342-.896 3.354l.001.001z" />
-              </svg>
-            </a>
-          </div>
-
           {/* Copyright centrado/derecha */}
           <p className={`text-sm text-center md:text-right `}>
             Copyright ©2026 All rights reserved | This template is made with ♥
-            by Colorlib
+            by TUWEBHOY
           </p>
         </div>
       </div>

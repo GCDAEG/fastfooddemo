@@ -6,14 +6,14 @@ export type NavSection = {
 
 export const sections: NavSection[] = [
   { id: "hero", label: "Inicio" },
-  { id: "stats", label: "Stats" },
+  { id: "rooms", label: "Habitaciones" },
   {
-    id: "practice",
-    label: "Áreas de Práctica",
+    id: "services",
+    label: "Servicios",
   },
   {
-    id: "about",
-    label: "Resultados",
+    id: "gallery",
+    label: "Galeria",
   },
-  { id: "faq", label: "Preguntas" },
+  { id: "location", label: "Ubicacion" },
 ];

@@ -1,9 +1,10 @@
 import HeroSection from "../components/layout/Sections/HeroSection";
-import FAQS from "../components/layout/Sections/FAQs";
-import StatsSection from "../components/layout/Sections/StatsSection";
-import PracticeArea from "../components/layout/Sections/PracticeArea";
-import WhyChooseUs from "../components/layout/Sections/WhyChooseUs";
+import Testimonials from "../components/layout/Sections/Testimonials";
+import RoomsSection from "../components/layout/Sections/RoomsSection";
+import ServiceSection from "../components/layout/Sections/ServiceSection";
+import Gallery from "../components/layout/Sections/Gallery";
 import WhatsAppChatInput from "@/components/ui/WhatsAppChatInput";
+import LocationSection from "@/components/layout/Sections/Location";
 // export const roboto = Roboto({
 //   subsets: ["latin"],
 //   display: "swap",
@@ -30,10 +31,11 @@ export default function Home() {
   return (
     <main className={`min-h-screen w-full font-base bg-background`}>
       <HeroSection />
-      <StatsSection />
-      <PracticeArea />
-      <WhyChooseUs />
-      <FAQS />
+      <RoomsSection />
+      <ServiceSection />
+      <Gallery />
+      <LocationSection />
+      <Testimonials />
       <WhatsAppChatInput />
     </main>
   );

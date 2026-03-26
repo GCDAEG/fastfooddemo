@@ -1,4 +1,4 @@
-import { Roboto, Lora, Montserrat } from "next/font/google";
+import { Roboto, Lora, Inter } from "next/font/google";
 
 export const roboto = Roboto({
   subsets: ["latin"],
@@ -12,8 +12,8 @@ export const lora = Lora({
   variable: "--font-lora",
 });
 
-export const montserrat = Montserrat({
+export const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-montserrat",
+  variable: "--font-inter",
 });

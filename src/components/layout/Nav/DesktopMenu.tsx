@@ -1,6 +1,6 @@
 import { NavSection } from "@/lib/sections";
 import { cn } from "@/lib/utils";
-import { Gavel } from "lucide-react";
+import { Gavel, Waves } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -10,13 +10,11 @@ import { useLenis } from "lenis/react";
 interface DesktopMenuProps {
   sections: NavSection[];
   activeSection: string | null;
-  isScrolled: boolean;
 }
 
 const DesktopMenu: React.FC<DesktopMenuProps> = ({
   sections,
   activeSection,
-  isScrolled,
 }) => {
   const lenis = useLenis();
   useEffect(() => {
@@ -24,25 +22,17 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
   }, [activeSection]);
 
   return (
-    <motion.div
-      animate={{
-        bottom: isScrolled ? 0 : "",
-        top: isScrolled ? "" : "100%",
-      }}
+    <div
       className={cn(
-        "w-full mx-auto h-12 px-5 md:px-6 lg:px-28 hidden items-center justify-between md:flex absolute z-50 ",
-        !isScrolled && "bg-linear-to-b from-black/20",
+        "w-full mx-auto h-full px-4 md:px-8 lg:px-40 hidden items-center justify-between md:flex absolute z-50 text-foreground",
       )}
     >
       {/* Logo */}
-      <Link
-        href="/"
-        className={`font-bold text-lg flex items-center gap-2 ${isScrolled ? "text-foreground" : "text-white"}`}
-      >
-        <div className="border-2 aspect-square size-8 flex">
-          <Gavel className={`size-full `} strokeWidth={2} />
+      <Link href="/" className={`font-bold text-lg flex items-center gap-3`}>
+        <div className=" flex">
+          <Waves className={`size-6 `} strokeWidth={2} />
         </div>
-        <p className="text-2xl">LAW</p>
+        <p className="text-2xl ">AGUAYRIO</p>
       </Link>
 
       {/* Links */}
@@ -53,13 +43,12 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
               onClick={(e) => {
                 e.preventDefault();
                 lenis?.scrollTo(`#${s.id}`, {
-                  offset: -96,
+                  offset: -64,
                   duration: 1.2,
                 });
               }}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                isScrolled ? "" : "text-white",
+                "text-base text-text-primary font-semibold transition-colors hover:text-primary",
                 activeSection === s.id && "text-primary border-b",
               )}
             >
@@ -68,7 +57,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
           </li>
         ))}
       </ul>
-    </motion.div>
+    </div>
   );
 };
 

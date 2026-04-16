@@ -14,7 +14,7 @@ const HeroSection = () => {
       id="hero"
       className="px-4 sm:px-8 lg:px-12 py-8 md:py-12 lg:py-16 bg-white"
     >
-      <div className="container mx-auto max-w-xl flex flex-col gap-5 justify-center h-fit">
+      <div className="container mx-auto max-w-2xl flex flex-col gap-5 justify-center h-fit">
         {/* HEADER DE BIENVENIDA */}
         <div className="space-y-1 ">
           <p className="text-[13px] text-slate-500 font-medium">

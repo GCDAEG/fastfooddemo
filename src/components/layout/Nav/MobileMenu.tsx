@@ -36,9 +36,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ sections, activeSection }) => {
   };
 
   return (
-    <>
+    <div className="flex w-full justify-center relative z-[100] max-w-2xl">
       {/* --- NAVBAR MÓVIL (TOP) --- */}
-      <nav className="fixed top-0 left-0 w-full h-20 z-[100] flex items-center px-4 bg-white/90 backdrop-blur-md border-b border-slate-100 lg:hidden">
+      <nav className="relative w-full h-20 z-[100] flex items-center px-4 bg-white/90 backdrop-blur-md border-b border-slate-100 ">
         <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
           <Link
             href="/"
@@ -155,7 +155,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ sections, activeSection }) => {
           </>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 

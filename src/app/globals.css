@@ -91,7 +91,10 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+  .si-scrollbar {
+    -ms-overflow-style: initial;
+    scrollbar-width: 2px;
+  }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

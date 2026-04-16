@@ -48,7 +48,7 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ posts }) => {
             </div>
 
             {/* SCROLL HORIZONTAL (Native App Feel) */}
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar px-4 pb-2">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-2">
               {getProductsByCategory(category as string).map((product) => {
                 const pId = product.id || product.id;
                 const pName = product.name;
